@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dados Cadastrais</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>Informações Cadastrais</h1>
+    
+    <div id="informacoes">
+      <p><strong>Nome:</strong> <span id="nomeDisplay"></span></p>
+      <p><strong>Endereço:</strong> <span id="enderecoDisplay"></span></p>
+      <p><strong>CEP:</strong> <span id="cepDisplay"></span></p>
+      <p><strong>CPF:</strong> <span id="cpfDisplay"></span></p>
+      <p><strong>Telefone:</strong> <span id="telefoneDisplay"></span></p>
+      <p><strong>CNPJ:</strong> <span id="cnpjDisplay"></span></p>
+      <p><strong>Código:</strong> <span id="codigoDisplay"></span></p>
+    </div>
+    
+  </div>
+
+  <script>
+    // Obtendo os parâmetros da URL
+    const urlParams = new URLSearchParams(window.location.search);
+    
+    document.getElementById('nomeDisplay').textContent = urlParams.get('nome');
+    document.getElementById('enderecoDisplay').textContent = urlParams.get('endereco');
+    document.getElementById('cepDisplay').textContent = urlParams.get('cep');
+    document.getElementById('cpfDisplay').textContent = urlParams.get('cpf');
+    document.getElementById('telefoneDisplay').textContent = urlParams.get('telefone');
+    document.getElementById('cnpjDisplay').textContent = urlParams.get('cnpj');
+    document.getElementById('codigoDisplay').textContent = urlParams.get('codigo');
+  </script>
+
+</body>
+</html>
