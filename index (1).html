@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulário de Cadastro</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>Formulário de Cadastro</h1>
+    <form id="formCadastro" action="dados.html" method="get">
+      <div class="grid-container">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required placeholder="Cauã Zanete Souza">
+
+        <label for="endereco">Endereço:</label>
+        <input type="text" id="endereco" name="endereco" required placeholder="R. Santa Cruz, 546">
+
+        <label for="cep">CEP:</label>
+        <input type="text" id="cep" name="cep" maxlength="9" onkeyup="handleZipCode(event)" required placeholder="30431-228">
+
+        <label for="cpf">CPF</label>
+				<input type="text" name="cpf" id="cpf" class="mask-cpf" maxlength="14"  placeholder="xxx.xxx.xxx-xx"> 
+
+        <label>Tel</label>
+        <input type="tel" placeholder="(31)99999-9999" id="telefone"  oninput=mascara_telefone() maxlength="14">
+
+        <label for="cnpj">CNPJ</label>
+				<input type="text" name="cnpj" id="cnpj" class="mask-cnpj" placeholder="XX.XXX.XXX/0001-XX"> 
+
+        <label for="codigo">Código:</label>
+        <input type="text" id="codigo" name="codigo" oninput=mascara_telefone()  maxlength="20" required placeholder="xx_xx//xxx-xxx.9.xxx">
+
+        <button type="submit">Enviar</button>
+      </div>
+    </form>
+    <div id="confirmacao" style="display: none;">
+      <p>Formulário enviado com sucesso!</p>
+    </div>
+  </div>
+
+  <script src="scripts.js"></script>
+  <script type="text/javascript" src="mask-cpf-cnpj-pure-js.js"></script>
+  <script type="text/javascript">
+    let inputCpfCnpj = document.getElementsByClassName('mask-cpf-cnpj');
+    let inputCpf = document.getElementsByClassName('mask-cpf');
+    let inputCnpj = document.getElementsByClassName('mask-cnpj');
+
+    maskCpfCnpjPureJs(inputCpfCnpj);
+    maskCpfCnpjPureJs(inputCpf, 'cpf');
+    maskCpfCnpjPureJs(inputCnpj, 'cnpj');
+  </script>
+
+</body>
+</html>
